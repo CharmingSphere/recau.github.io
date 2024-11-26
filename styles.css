@@ -1,0 +1,125 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Estilos generales de la barra de navegación */
+nav {
+    background-color: #2f9e44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Enlaces del menú */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #38c70c;
+    color:#333
+}
+
+/* Ocultar el menú en pantallas pequeñas por defecto */
+nav ul {
+    display: flex;
+}
+
+.hamburger {
+    display: none; /* Ocultar el icono de hamburguesa por defecto */
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Ocultar el menú en pantallas pequeñas */
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Mostrar el menú cuando se active */
+    }
+
+    .hamburger {
+        display: block; /* Mostrar el icono de hamburguesa en pantallas pequeñas */
+    }
+
+    nav a {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Secciones */
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+/* Formulario */
+input, select, button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #2f9e44;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1a7f34;
+}
+
+/* Listado de productos en venta */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}

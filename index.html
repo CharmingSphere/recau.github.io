@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Venta - Recaudería</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="Logo" height="40">
+        </div>
+        <ul id="menu">
+            <li><a href="#agregar-producto">Agregar Producto</a></li>
+            <li><a href="#editar-productos">Modificar Productos</a></li>
+            <li><a href="#venta">Realizar Venta</a></li>
+            <li><a href="#reporte">Reporte de Ventas</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger-icon">
+            &#9776;
+        </div>
+    </nav>
+
+    <!-- Sección para agregar productos -->
+    <section id="agregar-producto">
+        <h2>Agregar Producto</h2>
+        <input type="text" id="nombre-producto" placeholder="Nombre del producto">
+        <input type="number" id="precio-producto" placeholder="Precio por unidad o kilo">
+        <select id="tipo-producto">
+            <option value="pieza">Pieza</option>
+            <option value="kilo">Kilo</option>
+        </select>
+        <button onclick="agregarProducto()">Agregar Producto</button>
+    </section>
+
+    <!-- Sección para modificar productos -->
+    <section id="editar-productos">
+        <h2>Modificar Productos</h2>
+        <input type="text" id="filtro-productos-editar" placeholder="Buscar producto para editar">
+        <select id="productos-editar" onchange="cargarProductoEditar()">
+            <option value="">Selecciona un producto</option>
+        </select>
+        <input type="text" id="nombre-editar" placeholder="Nuevo nombre del producto">
+        <input type="number" id="precio-editar" placeholder="Nuevo precio">
+        <button onclick="guardarCambios()">Guardar Cambios</button>
+        <button onclick="eliminarProducto()">Eliminar Producto</button>
+    </section>
+
+    <!-- Sección para realizar ventas -->
+    <section id="venta">
+        <h2>Realizar Venta</h2>
+        <input type="text" id="filtro-productos-venta" placeholder="Buscar producto para vender">
+        <select id="productos-venta">
+            <option value="">Selecciona un producto</option>
+        </select>
+        <input type="number" id="cantidad-venta" placeholder="Cantidad">
+        <button onclick="agregarAventa()">Agregar a la venta</button>
+
+        <h3>Productos en la venta:</h3>
+        <ul id="productos-en-venta"></ul>
+        <h3>Total: <span id="total-venta">$0.00</span></h3>
+        <button onclick="finalizarVenta()">Finalizar Venta</button>
+    </section>
+
+    <!-- Sección para mostrar el reporte de ventas -->
+    <section id="reporte">
+        <h2>Reporte de Ventas</h2>
+        <button onclick="verVentas()">Ver Reporte</button>
+        <div id="reporte-ventas"></div>
+        <button onclick="exportarAExcel()">Exportar a Excel</button>
+        <button onclick="exportarAPDF()">Exportar a PDF</button>
+        <button onclick="borrarHistorialVentas()">Borrar Historial de Ventas</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
